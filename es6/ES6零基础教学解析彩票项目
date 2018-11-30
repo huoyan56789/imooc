@@ -37,6 +37,9 @@ a执行完执行b
 1，回调2，事件触发
 index.js为入口文件
 
+timer.js定时器文件
+calculate.js计算模块
+
 
 
 
