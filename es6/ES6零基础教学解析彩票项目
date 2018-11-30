@@ -1,0 +1,53 @@
+1,对象拷贝Object.assign({t:1}{t:2})
+2，默认参数 function hello(txt='hello world'){}
+3,字符串模板
+var name="eof";
+var txt='hello ${name}'
+4,解构赋值
+5，箭头函数
+6，set和map
+7,异步操作
+8，类和对象
+9，模块化
+
+babel编译工具，webpack解决模块化，gulp自动化工具
+gulp 构建，基于流
+webpack 打包
+webpack-stream 基于文件流打包
+gulp-uglify js,css压缩
+
+args.js ======== yargs处理识别命令
+app目录是前端资源原始文件，源文件改变，自动编译到public，需要，browser.js
+任务间的关联，编译完的文件拷贝，重新生成拷贝，清空之前的编译文件，clean.js 清空
+build.js将所有任务串起来
+执行gulp第一个文件为gulpfile.babel.js ，.babelrc转es文件
+gulp --watch ，加--watch才处于监听，否则执行一次就结束
+app.js文件中+ app.use(require('connect-livereload')());
+connect-livereload为中间件，一定放在app.use(express.static(path.join(__dirname, 'public')));下面才能生效
+let块作用域，es6严格模式，es5启动严格模式，需要use strict
+
+解构赋值
+左边一种结构，右边一种，左赋给右
+
+this，es5函数被调用时的对象所在
+es6的箭头函数 被定义时的对象所在
+
+异步
+a执行完执行b
+1，回调2，事件触发
+index.js为入口文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
