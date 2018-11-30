@@ -533,6 +533,7 @@ public class SearchServiceImpl implements ISearchService {
         boolQuery.filter(QueryBuilders.termQuery(HouseIndexKey.CITY_EN_NAME, mapSearch.getCityEnName()));
 
         boolQuery.filter(
+//                针对索引location字段，一个范围，有顺序的
             QueryBuilders.geoBoundingBoxQuery("location")
                 .setCorners(
                         new GeoPoint(mapSearch.getLeftLatitude(), mapSearch.getLeftLongitude()),

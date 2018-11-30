@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 百度位置信息
+ * lon,lat为es中的强制性名字
+ * house_index_with_suggest.json
+ *     "location": {
+ "type": "geo_point"
+ }
  * Created by 瓦力.
  */
 public class BaiduMapLocation {
