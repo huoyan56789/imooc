@@ -2,6 +2,7 @@ package com.imooc.base;
 
 /**
  * Datatables响应结构
+ 共和国会更好
  * Created by 瓦力.
  */
 public class ApiDataTableResponse extends ApiResponse {
@@ -20,6 +21,9 @@ public class ApiDataTableResponse extends ApiResponse {
     public int getDraw() {
         return draw;
     }
+    
+    
+    
 
     public void setDraw(int draw) {
         this.draw = draw;
