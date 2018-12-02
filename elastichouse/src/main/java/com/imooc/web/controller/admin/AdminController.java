@@ -386,7 +386,7 @@ public class AdminController {
     }
 
     /**
-     *
+     *后台管理页面
      * @param draw
      * @param start
      * @param size
@@ -401,12 +401,18 @@ public class AdminController {
 
         ApiDataTableResponse response = new ApiDataTableResponse(ApiResponse.Status.SUCCESS);
         response.setData(result.getResult());
+//        draw用于回显
         response.setDraw(draw);
         response.setRecordsFiltered(result.getTotal());
         response.setRecordsTotal(result.getTotal());
         return response;
     }
 
+    /**
+     * 查看用户信息接口
+     * @param userId
+     * @return
+     */
     @GetMapping("admin/user/{userId}")
     @ResponseBody
     public ApiResponse getUserInfo(@PathVariable(value = "userId") Long userId) {
@@ -423,7 +429,11 @@ public class AdminController {
     }
 
 
-
+    /**
+     * 完成预约功能
+     * @param houseId
+     * @return
+     */
     @PostMapping("admin/finish/subscribe")
     @ResponseBody
     public ApiResponse finishSubscribe(@RequestParam(value = "house_id") Long houseId) {

@@ -17,6 +17,8 @@ import com.imooc.security.LoginUrlEntryPoint;
 
 /**
  * Created by 瓦力.
+ * EnableWebSecurity 允许使用websecurity
+ * EnableGlobalMethodSecurity
  */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity
