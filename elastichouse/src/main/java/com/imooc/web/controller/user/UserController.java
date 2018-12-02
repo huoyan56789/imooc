@@ -64,6 +64,7 @@ public class UserController {
 
     }
 
+//    用户预约
     @PostMapping(value = "api/user/house/subscribe")
     @ResponseBody
     public ApiResponse subscribeHouse(@RequestParam(value = "house_id") Long houseId) {
@@ -75,6 +76,7 @@ public class UserController {
         }
     }
 
+//    待看清单，我的预约，看房记录
     @GetMapping(value = "api/user/house/subscribe/list")
     @ResponseBody
     public ApiResponse subscribeList(
@@ -93,6 +95,7 @@ public class UserController {
         return response;
     }
 
+//    预约功能
     @PostMapping(value = "api/user/house/subscribe/date")
     @ResponseBody
     public ApiResponse subscribeDate(

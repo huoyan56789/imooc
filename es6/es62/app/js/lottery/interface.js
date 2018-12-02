@@ -7,8 +7,13 @@ class Interface{
    * @return {[type]}       [description]
    */
   getOmit(issue){
+    //获取当前对象，赋值一个变量
+      //箭头函数的this指向是定义时的this指向，而不是运行时的this指向
+      //
     let self=this;
+    //1
     return new Promise((resolve,reject)=>{
+      //jquery的用法
       $.ajax({
         url:'/get/omit',
         data:{
@@ -16,6 +21,11 @@ class Interface{
         },
         dataType:'json',
         success:function(res){
+          // 数据保存到当前对象
+            //lottery.js多重继承，要this对象
+            //lottery实例对象可以访问interface
+            //对象.getOmit,
+            //setOmit用对象方法的方式保存数据，数据共享
           self.setOmit(res.data);
           resolve.call(self,res)
         },
@@ -40,7 +50,7 @@ class Interface{
         },
         dataType:'json',
         success:function(res){
-          self.setOpenCode(res.data);
+          c.setOpenCode(res.data);
           resolve.call(self,res);
         },
         error:function(err){

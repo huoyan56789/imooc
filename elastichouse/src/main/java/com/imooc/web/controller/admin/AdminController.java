@@ -385,6 +385,13 @@ public class AdminController {
         return "admin/subscribe";
     }
 
+    /**
+     *
+     * @param draw
+     * @param start
+     * @param size
+     * @return
+     */
     @GetMapping("admin/house/subscribe/list")
     @ResponseBody
     public ApiResponse subscribeList(@RequestParam(value = "draw") int draw,
@@ -414,6 +421,8 @@ public class AdminController {
             return ApiResponse.ofSuccess(serviceResult.getResult());
         }
     }
+
+
 
     @PostMapping("admin/finish/subscribe")
     @ResponseBody

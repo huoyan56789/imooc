@@ -130,6 +130,7 @@ public interface IHouseService {
 
     /**
      * 管理员查询预约信息接口
+     * 返回的数据结构为coupon元组,spring提供的pair
      * @param start
      * @param size
      */

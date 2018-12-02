@@ -8,16 +8,23 @@ es与mysql技术
 
 中文分词
 
-search-as-you-type
+search-as-you-type自动补全
 
-小区房源统计
+小区房源统计 聚合统计aggregationBuilder
 
 搜索引擎优化
-
+1,explain=ture 解析计算方式
+2，boost增加权重
+3，must/should的选用
+4，数据集返回过大，setFetchSource(),返回固定字段
+5,相关度，准确度等
 业务与功能分析
 
 基于es的地图点聚合
+baidu地图插件，前端
 
 地图鼠标事件应用
 
+利用地图查询数据源，loadHouseData前端入口，pararms加载 有些为默认参数，
+地图事件，缩放
 百度LBS的云麻点
