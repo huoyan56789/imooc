@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 		title: 'Express'
 	});
 });
-
+// 用来输出状态
 var makeIssue=function(){
 	var date=new Date();
 	var first_issue_date=new Date();
@@ -54,6 +54,7 @@ var makeIssue=function(){
 }
 
 router.get('/get/omit',function(req,res,next){
+    // json返回json格式
 	res.json(mockjs.mock({
 		'data|11':[/[1-9]{1,3}|0/],
 		'issue':/[1-9]{8}/
@@ -62,6 +63,7 @@ router.get('/get/omit',function(req,res,next){
 
 router.get('/get/opencode',function(req,res,next){
 	var issue=makeIssue().issue;
+    // mockjs模拟数据
 	var data=mockjs.mock({
 		'data':[/[1-3]/,/[4-5]/,/[6-7]/,/[8-9]/,/1[0-1]/]
 	}).data;

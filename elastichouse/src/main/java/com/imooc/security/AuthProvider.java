@@ -22,6 +22,12 @@ public class AuthProvider implements AuthenticationProvider {
 
     private final Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
 
+    /**
+     * 登陆逻辑
+     * @param authentication
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String userName = authentication.getName();
@@ -41,6 +47,11 @@ public class AuthProvider implements AuthenticationProvider {
 
     }
 
+    /**
+     * 支持所有认证类
+     * @param authentication
+     * @return
+     */
     @Override
     public boolean supports(Class<?> authentication) {
         return true;

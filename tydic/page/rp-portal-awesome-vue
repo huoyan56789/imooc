@@ -1,0 +1,11 @@
+kafka/营销活动配置
+
+https://www.cnblogs.com/kugeliu/p/7233335.html
+在没使用扩展办法的时候，在组件当中通过下面方式进行传参
+testMethods(data) {
+    this.$store.commit("add",data)
+}
+而使用了扩展函数了之后，直接在调用的地方传入参数，会自动传递的
+...mapMutations({
+      testMethods: "add",
+})

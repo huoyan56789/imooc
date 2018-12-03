@@ -5,6 +5,7 @@ class Base{
    * @return {[type]} [description]
    */
   initPlayList(){
+    // map形式
     this.play_list.set('r2',{
       bonus:6,
       tip:'从01～11中任选2个或多个号码，所选号码与开奖号码任意两个号码相同，即中奖<em class="red">6</em>元',
@@ -47,16 +48,18 @@ class Base{
    */
   initNumber(){
     for(let i=1;i<12;i++){
+        // number是set对象，padStart让每个字符串保存2个的长度
       this.number.add((''+i).padStart(2,'0'))
     }
   }
 
   /**
-   * [setOmit 设置遗漏数据]
+   * [setOmit 设置遗漏数据，遗漏数据每10分钟更新]
    * @param {[type]} omit [description]
    */
   setOmit(omit){
     let self=this;
+      // omit是个map对象，
     self.omit.clear();
     for(let [index,item] of omit.entries()){
       self.omit.set(index,item)
@@ -74,8 +77,10 @@ class Base{
     let self=this;
     self.open_code.clear();
     for(let item of code.values()){
+      // set对象，开奖号码不重复
       self.open_code.add(item);
     }
+      // 如果存在updateOpenCode，则执行
     self.updateOpenCode&&self.updateOpenCode.call(self,code);
   }
 
@@ -87,6 +92,7 @@ class Base{
   toggleCodeActive(e){
     let self=this;
     let $cur=$(e.currentTarget);
+      // toggleClass切换类
     $cur.toggleClass('btn-boll-active');
     self.getCount();
   }
@@ -98,25 +104,34 @@ class Base{
    */
   changePlayNav(e){
     let self=this;
+      // currentTarget发生在哪个dom上的事件，
     let $cur=$(e.currentTarget);
+      // siblings() 获得匹配集合中每个元素的同胞，通过选择器进行筛选是可选的。
     $cur.addClass('active').siblings().removeClass('active');
+    // 把描述转成小写
     self.cur_play=$cur.attr('desc').toLocaleLowerCase();
+    // 切换文字说明
     $('#zx_sm span').html(self.play_list.get(self.cur_play).tip);
+    // 切换玩法时，把上次的选中清空掉
     $('.boll-list .btn-boll').removeClass('btn-boll-active');
+    // 重新计算
     self.getCount();
   }
 
   /**
-   * [assistHandle 操作区]
+   * [assistHandle 操作区，全，大，小，奇，偶]
    * @param  {[type]} e [description]
    * @return {[type]}   [description]
    */
   assistHandle(e){
+    // 阻止默认事件
     e.preventDefault();
     let self=this;
     let $cur=$(e.currentTarget);
+    // 返回当前集合的索引
     let index=$cur.index();
     $('.boll-list .btn-boll').removeClass('btn-boll-active');
+    // 如果是全选
     if(index===0){
       $('.boll-list .btn-boll').addClass('btn-boll-active');
     }
@@ -164,6 +179,7 @@ class Base{
    */
   addCode(){
     let self=this;
+    // 返回數組
     let $active=$('.boll-list .btn-boll-active').text().match(/\d{2}/g);
     let active=$active?$active.length:0;
     let count=self.computeCount(active,self.cur_play);
@@ -181,6 +197,7 @@ class Base{
    */
   addCodeItem(code,type,typeName,count){
     let self=this;
+    // 模板
     const tpl=`
     <li codes="${type}|${code}" bonus="${count*2}" count="${count}">
 		 <div class="code">
@@ -244,6 +261,7 @@ class Base{
    */
   getRandom(num){
     let arr=[],index;
+    // 定义好随机空间this.number为set集合，转成array
     let number=Array.from(this.number);
     while(num--){
       index=Number.parseInt(Math.random()*number.length);

@@ -29,6 +29,45 @@ baidu地图插件，前端
 地图事件，缩放
 百度LBS的云麻点
 
-
-
 Pair元组，
+配置优化
+1，区分指挥节点，数据节点，负载均衡（可以用nginx代理）
+2，jvm.option 中的配置
+-Xms 以及-Xmx 由于jvm指针压缩技术针对小于32才优化
+占用不超机器50%，若有对内存大小128g，可设2个32g节点，在32g以内越大越好
+硬盘ssd，文件系统，大量数据写入用bulk提升qps.
+
+基于nginx实现负载均衡
+.configure --with-stream
+这个参数用来激活nginx -stream callmethod模块（自己未研究）
+非http代理而是tcp代理，配置nginx.conf
+stream{
+    upstream backend{
+        server 127.0.0.1:9300;
+    }
+    server{
+        listen 9999;
+        proxy-pass bankend;//通过谁代理谁
+        prox-timeout 20s；代理超时时间
+    }
+}
+
+
+优化配置
+application-online.properties
+  "settings": {
+    "number_of_replicas": 0,
+    "number_of_shards": 5,
+    "index.store.type": "niofs",
+    "index.query.default_field": "title",
+    "index.unassigned.node_left.delayed_timeout": "5m"
+  },
+
+安全控制
+es须开放公网才能访问
+network.host
+network.publish-host
+在nginx修改http的server
+
+logstash日志采集中间件
+运用ruby语言解析

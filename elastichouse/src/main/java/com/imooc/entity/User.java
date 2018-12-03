@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Created by 瓦力.
+ * UserDetails需要实现
  */
 @Entity
 @Table(name = "user")
@@ -63,6 +64,9 @@ public class User implements UserDetails {
         this.name = name;
     }
 
+    /**
+     * 透明
+     */
     @Transient
     private List<GrantedAuthority> authorityList;
 
