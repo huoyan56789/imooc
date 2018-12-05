@@ -71,3 +71,14 @@ network.publish-host
 
 logstash日志采集中间件
 运用ruby语言解析
+
+ElasticSearch OR MySQL?
+https://www.imooc.com/article/22083
+ElasticSearch
+1，搜索能力强大
+2，分布式，集群化
+
+
+MySQL
+1，事务功能特性
+2
