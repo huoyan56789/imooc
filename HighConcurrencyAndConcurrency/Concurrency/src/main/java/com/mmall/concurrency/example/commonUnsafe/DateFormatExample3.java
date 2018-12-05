@@ -25,9 +25,11 @@ public class DateFormatExample3 {
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
+      
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         for (int i = 0; i < clientTotal; i++) {
+              //传到线程池里的类型需要是final类型
             final int count = i;
             executorService.execute(() -> {
                 try {

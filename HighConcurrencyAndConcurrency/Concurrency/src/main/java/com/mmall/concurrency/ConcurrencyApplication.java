@@ -14,6 +14,7 @@ public class ConcurrencyApplication extends WebMvcConfigurerAdapter{
 		SpringApplication.run(ConcurrencyApplication.class, args);
 	}
 
+    //让系统知道filter要拦截哪些请求
 	@Bean
 	public FilterRegistrationBean httpFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();

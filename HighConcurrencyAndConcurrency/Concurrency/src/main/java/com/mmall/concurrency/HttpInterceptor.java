@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class HttpInterceptor extends HandlerInterceptorAdapter {
 
+    //请求之前
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("preHandle");
         return true;
     }
-
+//完成就处理，无论是否有异常
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         RequestHolder.remove();
