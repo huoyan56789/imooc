@@ -48,16 +48,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(authFailHandler())
                 .and()
                 .logout()
+//                处理logout
                 .logoutUrl("/logout")
+                //指定的登出配置页面
                 .logoutSuccessUrl("/logout/page")
+                //logout删除JSESSIONID
                 .deleteCookies("JSESSIONID")
+                //同时使sesion会话失效
                 .invalidateHttpSession(true)
                 .and()
                 .exceptionHandling()
                 .authenticationEntryPoint(urlEntryPoint())
                 .accessDeniedPage("/403");
 
+        //关闭防御配置，csrf是防御策略
         http.csrf().disable();
+        //开启同源
         http.headers().frameOptions().sameOrigin();
     }
 
@@ -66,9 +72,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        //配置
         auth.authenticationProvider(authProvider()).eraseCredentials(true);
     }
 
+    /**
+     * 自己实现
+     * @return
+     */
     @Bean
     public AuthProvider authProvider() {
         return new AuthProvider();

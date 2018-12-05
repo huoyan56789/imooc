@@ -23,10 +23,16 @@ public class LoginUrlEntryPoint extends LoginUrlAuthenticationEntryPoint {
     private static final String API_FREFIX = "/api";
     private static final String API_CODE_403 = "{\"code\": 403}";
     private static final String CONTENT_TYPE = "application/json;charset=UTF-8";
-
+    /**
+     * spring的工具
+     */
     private PathMatcher pathMatcher = new AntPathMatcher();
     private final Map<String, String> authEntryPointMap;
 
+    /**
+     * 基于角色登陆入口控制器
+     * @param loginFormUrl
+     */
     public LoginUrlEntryPoint(String loginFormUrl) {
         super(loginFormUrl);
         authEntryPointMap = new HashMap<>();

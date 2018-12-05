@@ -42,7 +42,7 @@ index.js为入口文件
 
 timer.js定时器文件
 calculate.js计算模块
-
+base.js所有模块共享的数据，采用放在对象私有属性上
 
 
 
