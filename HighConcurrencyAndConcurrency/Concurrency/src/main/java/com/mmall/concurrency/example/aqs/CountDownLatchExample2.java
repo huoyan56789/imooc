@@ -30,8 +30,10 @@ public class CountDownLatchExample2 {
                 }
             });
         }
+//        10毫秒
         countDownLatch.await(10, TimeUnit.MILLISECONDS);
         log.info("finish");
+        //已有线程执行完，再销毁掉
         exec.shutdown();
     }
 

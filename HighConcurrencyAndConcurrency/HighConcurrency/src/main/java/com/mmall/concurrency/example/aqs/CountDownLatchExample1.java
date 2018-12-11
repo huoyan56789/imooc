@@ -29,6 +29,7 @@ public class CountDownLatchExample1 {
                 }
             });
         }
+//        当计数值变为0之后，被await方法阻塞的线程将会唤醒，实现线程间的同步
         countDownLatch.await();
         log.info("finish");
         exec.shutdown();

@@ -19,6 +19,7 @@ public class ThreadPoolExample4 {
 //        executorService.schedule(new Runnable() {
 //            @Override
 //            public void run() {
+        //延迟执行
 //                log.warn("schedule run");
 //            }
 //        }, 3, TimeUnit.SECONDS);
@@ -28,7 +29,9 @@ public class ThreadPoolExample4 {
             public void run() {
                 log.warn("schedule run");
             }
+            //延迟1s,每隔3s执行
         }, 1, 3, TimeUnit.SECONDS);
+        //需要等到某个契机，执行shutdown
 //        executorService.shutdown();
 
         Timer timer = new Timer();
